@@ -26,7 +26,7 @@ export default async function handler(
   const body: RequestBody = req.body;
 
   try {
-    const filename = `${uuidv4()}.json`;
+    const filename = `/tmp/${uuidv4()}.json`;
 
     // Write JSON data to a temporary file
     fs.writeFileSync(filename, JSON.stringify(body.data));
