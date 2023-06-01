@@ -1,0 +1,24 @@
+{
+  "name": "nifta",
+  "version": "1.0.0",
+  "description": "AI meets NFTs on Theta",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/irshadnilam/nifta.git"
+  },
+  "keywords": [
+    "ai",
+    "nft",
+    "theta"
+  ],
+  "author": "Irshad Nilam",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/irshadnilam/nifta/issues"
+  },
+  "homepage": "https://github.com/irshadnilam/nifta#readme"
+}
