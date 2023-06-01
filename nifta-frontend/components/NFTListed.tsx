@@ -51,7 +51,6 @@ export default function NFTOwned({ tokenID }: Props) {
     return <></>;
   }
 
-  console.log(`${tokenID.toNumber()} is listed: ${tokenListedData?.isListed}`);
   if (tokenInfoLoading || tokenMetaData === null) {
     return (
       <div className="relative mb-4 w-full h-64 md:h-80 bg-gray-900 rounded-lg ">

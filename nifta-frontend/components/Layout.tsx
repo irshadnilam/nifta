@@ -16,10 +16,18 @@ export default function Layout({ children }: Props) {
         {connected && address && contract ? (
           children
         ) : (
-          <div className="flex flex-col gap-4 justify-center items-center mb-10">
-            <div className="w-3/4 lg:w-[48rem] flex flex-col gap-4">
-              <p className="text-center">
-                Please connect your wallet continue. Make sure you are on the Theta mainnet.
+          <div className="flex flex-col gap-4 justify-center items-center my-10">
+            <div className="w-3/4 lg:w-[48rem] flex flex-col gap-4 space-y-1 bg-gray-800 rounded py-3 px-3">
+              <p className="text-center text-lg">
+                Please connect your wallet continue.
+              </p>
+              <p className="text-center text-sm">
+                {" "}
+                Refer{" "}
+                <a className="text-gray-300 underline" href="https://docs.thetatoken.org/docs/web3-stack-metamask">
+                  here
+                </a>{" "}
+                to setup Metamask for <a href="#" className="text-blue-400">Theta Testnet</a>
               </p>
             </div>
           </div>

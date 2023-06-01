@@ -3,6 +3,8 @@ import { useContext, useEffect, useState } from "react";
 import NFTOwned from "./NFTOwned";
 import { RiRefreshLine } from "react-icons/ri";
 import NFTListed from "./NFTListed";
+import Link from "next/link";
+import BounceLoader from "react-spinners/BounceLoader";
 
 export default function Owned() {
   const { connected, address, contract } = useContext(ConnectionContext);
@@ -39,6 +41,7 @@ export default function Owned() {
   if (loading) {
     return (
       <div className="flex flex-col gap-4 justify-center items-center mb-10">
+        <BounceLoader color="#60a5fa" />
         <div className="w-3/4 lg:w-[48rem] flex flex-col gap-4">
           <p className="text-center">Loading...</p>
         </div>
@@ -77,6 +80,20 @@ export default function Owned() {
           <NFTOwned key={nft.toNumber()} tokenID={nft} />
         ))}
       </div>
+      {listedNFTs.length === 0 && ownedNFTs.length === 0 && (
+        <div className="flex flex-col my-3 space-y-2">
+          <p className="font-semibold">You do not own any NFTs of Nifta.</p>
+          <p>
+            <Link className="text-blue-400" href={"/create"}>
+              Create
+            </Link>{" "}
+            or checkout the{" "}
+            <Link className="text-blue-400" href={"/marketplace"}>
+              Marketplace
+            </Link>
+          </p>
+        </div>
+      )}
     </div>
   );
 }

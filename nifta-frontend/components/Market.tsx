@@ -4,6 +4,7 @@ import { RiRefreshLine } from "react-icons/ri";
 
 import NFTMarketItem from "./NFTMarketItem";
 import { BigNumber } from "ethers";
+import BounceLoader from "react-spinners/BounceLoader";
 
 export default function Market() {
   const { connected, address, contract } = useContext(ConnectionContext);
@@ -38,6 +39,7 @@ export default function Market() {
   if (marketLoading) {
     return (
       <div className="flex flex-col gap-4 justify-center items-center mb-10">
+        <BounceLoader color="#60a5fa" />
         <div className="w-3/4 lg:w-[48rem] flex flex-col gap-4">
           <p className="text-center">Loading...</p>
         </div>

@@ -59,30 +59,30 @@ export default function App({ Component, pageProps }: AppProps) {
     // Check if MetaMask is installed
     // MetaMask injects the global API into window.ethereum
     if (window.ethereum) {
-      // window.ethereum
-      //   .request({
-      //     method: "wallet_switchEthereumChain",
-      //     params: [{ chainId: "0x169" }], // chainId must be in hexadecimal numbers
-      //   })
-      //   .catch((error: any) => {
-      //     if (error.code === 4902) {
-      //       window.ethereum
-      //         .request({
-      //           method: "wallet_addEthereumChain",
-      //           params: [
-      //             {
-      //               chainId: "0x169",
-      //               rpcUrl: "https://eth-rpc-api.thetatoken.org/rpc",
-      //             },
-      //           ],
-      //         })
-      //         .catch((addError: any) => {
-      //           console.error(addError);
-      //         });
-      //     } else {
-      //       console.error(error);
-      //     }
-      //   });
+      window.ethereum
+        .request({
+          method: "wallet_switchEthereumChain",
+          params: [{ chainId: "0x16D" }], // chainId must be in hexadecimal numbers
+        })
+        .catch((error: any) => {
+          if (error.code === 4902) {
+            window.ethereum
+              .request({
+                method: "wallet_addEthereumChain",
+                params: [
+                  {
+                    chainId: "0x16D",
+                    rpcUrl: "https://eth-rpc-api-testnet.thetatoken.org/rpc",
+                  },
+                ],
+              })
+              .catch((addError: any) => {
+                console.error(addError);
+              });
+          } else {
+            console.error(error);
+          }
+        });
 
       window.ethereum.on("accountsChanged", (accounts: string[]) => {
         if (accounts.length === 0) {

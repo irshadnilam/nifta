@@ -2,7 +2,6 @@ import { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
 import { FiSearch } from "react-icons/fi";
 import { ConnectionContext } from "../pages/_app";
-import FormData from "form-data";
 import { toast } from "react-toastify";
 import Link from "next/link";
 import axios from "axios";
@@ -28,8 +27,6 @@ export default function Mint() {
   const [generatedPrompt, setGeneratedPrompt] = useState("");
   const [generatedImage, setGeneratedImage] = useState("");
   const [generateProgress, setGenerateProgress] = useState(0);
-  const [network, setNetwork] = useState("mainnet");
-  const [nftLink, setNft] = useState("");
   const { connected, address, contract } = useContext(ConnectionContext);
 
   const onSubmit = (data: PromptForm) => {
@@ -252,9 +249,7 @@ export default function Mint() {
             </div>
             <div className="flex items-center justify-between">
               <p className="font-semibold text-lg">Network</p>
-              <p className="text-lg text-gray-400">
-                {network === "mainnet" ? "Theta mainnet" : "Theta testnet"}
-              </p>
+              <p className="text-lg text-gray-400">{"Theta testnet"}</p>
             </div>
           </div>
           {mintingStatus === "minted" ? (

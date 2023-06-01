@@ -55,7 +55,7 @@ export default function NFTOwned({ tokenID }: Props) {
   if (!connected || !address || !contract) {
     return <></>;
   }
-
+  
   if (tokenInfoLoading || tokenMetaData === null) {
     return (
       <div className="relative mb-4 w-full h-64 md:h-80 bg-gray-900 rounded-lg ">
@@ -115,9 +115,7 @@ export default function NFTOwned({ tokenID }: Props) {
 
         <div className="my-2">
           {listed ? (
-            <div className="text-white">
-              Listed for {price} TFUEL
-            </div>
+            <div className="text-white">Listed for {price} TFUEL</div>
           ) : (
             <form onSubmit={handleSubmit(onListItem)}>
               <label
